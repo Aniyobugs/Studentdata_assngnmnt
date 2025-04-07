@@ -35,6 +35,15 @@ app.delete('/:id', async (req, res) => {
       res.send(error);
     }
   });
+  // Update an employee by ID
+app.put('/:id', async (req, res) => {
+  try {
+      var update = await sModel.findByIdAndUpdate(req.params.id,req.body);
+        res.send("updated");
+  } catch (error) {
+      res.send(error)
+  }
+});
   
 
   app.listen(port, () => {
