@@ -25,6 +25,15 @@ app.get('/',async(req,res)=>{
         
     }
 })
+// / get by one
+app.get('/:id',async(req,res)=>{
+    try {
+        var data = await empmodel.findById(req.params.id);
+        res.send(data)
+    } catch (error) {
+        res.send (error)
+    }
+})
 // delete
 app.delete('/:id', async (req, res) => {
     try {
